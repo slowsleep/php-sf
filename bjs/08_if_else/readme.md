@@ -1,5 +1,5 @@
 ## Игра "угадай число"
 
-[попробовать][!https://slowsleep.github.io/php-sf/bjs/08_if_else/index.html]
+[попробовать](!https://slowsleep.github.io/php-sf/bjs/08_if_else/index.html)
 
 Укажите минимальное и макисмальное число для диапазона, в котором игра будет искать Ваше загаданное число.
