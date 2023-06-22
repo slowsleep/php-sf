@@ -10,6 +10,7 @@
 </head>
 <body>
 <div class="container">
+    <!-- game -->
     <div class="row game-card align-items-center">
         <div class="col col-md-4 offset-md-4">
             <div class="card text-center">
@@ -19,7 +20,7 @@
                 <div class="card-body">
                     <div class="row no-gutters">
                         <div class="col">
-                            <h3 class="card-title m-0 game-answer"><span id="answerField">Вы загадали число 5?</span></h3>
+                            <h3 class="card-title m-0 game-answer"><span id="answerField">Вы не загадали число!</span></h3>
                         </div>
                     </div>
                 </div>
@@ -36,6 +37,53 @@
             </div>
         </div>
     </div>
+
+    <!-- modals -->
+    <div id="modalMinNum" class="my-modal">
+        <div class="my-modal-content" id="minNumber">
+            <span class="close" id="closeModalMinNum">&times;</span>
+            <div class="round" style="text-align: center">
+                <br>
+                <label for="min_number" >Минимальное значение числа для игры</label >
+                <br>
+                <input type="number" value="0" name="min_number" min="-999" max="999" />
+                <div class="buttons-block">
+                    <button class="btn btn-success next" id="nextToMax">далее</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modalMaxNum" class="my-modal">
+        <div class="my-modal-content" id="maxNumber">
+            <span class="close" id="closeModalMaxNum">&times;</span>
+            <div class="round">
+                <br>
+                <label for="min_number" >Максимальное значение числа для игры</label >
+                <br>
+                <input type="number" value="100" name="max_number" min="-999" max="999" />
+                <div class="buttons-block">
+                    <button class="btn btn-secondary back" id="backToMin">назад</button>
+                    <button class="btn btn-success next" id="nextToConditions"> далее </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modalCondition" class="my-modal">
+        <div class="my-modal-content" id="maxCondition">
+            <span class="close" id="closeModalCondition">&times;</span>
+            <div class="round">
+                <br>
+                <p id="textCondition"> Загадайте любое целое число от 0 до 100, а я его угадаю </p>
+                <div class="buttons-block">
+                    <button class="btn btn-secondary back" id="backToMax">назад</button>
+                    <button class="btn btn-success next" id="nextToGame">далее</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
 <script src="script.js"></script>
 </body>
