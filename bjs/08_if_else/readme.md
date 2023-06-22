@@ -1,3 +1,4 @@
+[нзаад](../../readme.md)
 ## Игра "угадай число"
 
 [попробовать](https://slowsleep.github.io/php-sf/bjs/08_if_else/index.html)
