@@ -50,7 +50,7 @@ function numToString(number) {
             else if (arrNums[1] == i && arrNums[1] != 1) res.push(tensNums[i - 2]);
         }
         for (let i = 0; i < 10; i++) {
-            if (arrNums[2] == i && arrNums[1] > 1) res.push(primeNums[i]);
+            if (arrNums[2] == i && arrNums[1] != 1 && arrNums[2] != 0) res.push(primeNums[i]);
         }
     }
     return res.join(' ').trim();
@@ -84,7 +84,7 @@ let winPhrases = [ "Я всегда угадываю!", "Это было про�
 
 document.getElementById("btnLess").addEventListener("click", function () {
     if (gameRun) {
-        if (minValue === maxValue) {
+        if (minValue == maxValue || minValue == answerNumber) {
             const phraseRandom = Math.round(Math.random());
             const answerPhrase = phraseRandom === 1 ? `Вы загадали неправильное число!\n\u{1F914}` : `Я сдаюсь..\n\u{1F92F}`;
             answerField.innerText = answerPhrase;
@@ -102,14 +102,14 @@ document.getElementById("btnLess").addEventListener("click", function () {
 
 document.getElementById("btnOver").addEventListener("click", function () {
     if (gameRun) {
-        if (minValue === maxValue) {
+        if (minValue == maxValue || maxValue == answerNumber) {
             const phraseRandom = Math.round(Math.random());
             const answerPhrase = phraseRandom === 1 ? `Вы загадали неправильное число!\n\u{1F914}` : `Я сдаюсь..\n\u{1F92F}`;
             answerField.innerText = answerPhrase;
             gameRun = false;
         } else {
-            minValue = answerNumber + 1;
-            answerNumber = Math.floor((minValue + maxValue) / 2);
+            minValue = answerNumber;
+            answerNumber = Math.round((minValue + maxValue) / 2);
             orderNumber++;
             orderNumberField.innerText = orderNumber;
             const phraseRandom = Math.round(Math.random() * 4);
