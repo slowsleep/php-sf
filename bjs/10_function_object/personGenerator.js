@@ -135,7 +135,7 @@ const personGenerator = {
     },
 
     randomBirthdate: function() {
-        let randomYear = this.randomIntNumber(1960, 2005);
+        let randomYear = this.randomIntNumber(1960, 2003);
         let randomDayMonth;
 
         let months = ['января', 'февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря'];
