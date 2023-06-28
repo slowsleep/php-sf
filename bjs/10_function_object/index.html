@@ -17,18 +17,23 @@
                     <p class="m-0">Окно результатов генерации</p>
                 </div>
                 <div class="card-body">
-                    <div class="row">
+                    <div class="row border p-2 bg-light">
                         <div class="col">
-                            <h3 class="card-title"><span id="surnameOutput">Генерация фамилии</span></h3>
-                            <h4>Имя: <span id="firstNameOutput">Иван</span></h4>
-                            <p>
-                                <span id="genderOutput">Генерация пола</span>
+                            <div class="h2 font-weight-lighter my-3">
+                                <p class="card-title">Фамилия: <span id="surnameOutput"></span></p>
+                                <p>Имя: <span id="firstNameOutput"></span></p>
+                                <p>Отчество: <span id="patronymicOutput"></span></p>
+                            </div>
+                            <p class="text-monospace">
+                                Пол: <span id="genderOutput"></span>
                                 <span>, </span>
-                                <span id="birthYearOutput">Генерация года рождения</span>
+                                Дата рождения: <span id="birthYearOutput">Генерация года рождения</span>
                             </p>
+                            <p>Профессия: <span id="majorOutput"></span></p>
                         </div>
                     </div>
                 </div>
+                <button id="reload">Обновить</button>
             </div>
         </div>
     </div>

@@ -2,7 +2,7 @@
 
 - ### [Калькулятор](/bjs/07_Number_and_string/readme.md)
 - ### [Игра "Угадай число"](/bjs/08_if_else/readme.md)
-- ### -скоро-
+- ### [Генератор пользовательских данных](/bjs/10_function_object/readme.md)
 
 
 ## Технологии
