@@ -14,6 +14,16 @@ window.onload = function() {
     startGenerate();
 };
 
-document.querySelector('#reload').addEventListener('click', function() {
+
+document.querySelector('#generate').addEventListener('click', function() {
     startGenerate();
+});
+
+document.querySelector('#clear').addEventListener('click', function() {
+    document.getElementById('genderOutput').innerText = '';
+    document.getElementById('firstNameOutput').innerText = '';
+    document.getElementById('surnameOutput').innerText = '';
+    document.getElementById('patronymicOutput').innerText = '';
+    document.getElementById('birthYearOutput').innerText = '';
+    document.getElementById('majorOutput').innerText = '';
 });

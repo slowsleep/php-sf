@@ -12,28 +12,28 @@
 <div class="container">
     <div class="row game-card align-items-center">
         <div class="col col-md-6 offset-md-3">
-            <div class="card text-center">
+            <div class="card text-center shadow-lg my-5">
                 <div class="card-header">
                     <p class="m-0">Окно результатов генерации</p>
                 </div>
-                <div class="card-body">
+                <div class="card-body m-2">
                     <div class="row border p-2 bg-light">
                         <div class="col">
-                            <div class="h2 font-weight-lighter my-3">
+                            <div class="h2 font-weight-lighter my-3 text-left">
                                 <p class="card-title">Фамилия: <span id="surnameOutput"></span></p>
                                 <p>Имя: <span id="firstNameOutput"></span></p>
                                 <p>Отчество: <span id="patronymicOutput"></span></p>
                             </div>
-                            <p class="text-monospace">
-                                Пол: <span id="genderOutput"></span>
-                                <span>, </span>
-                                Дата рождения: <span id="birthYearOutput">Генерация года рождения</span>
-                            </p>
-                            <p>Профессия: <span id="majorOutput"></span></p>
+                            <div class="text-monospace text-left">
+                                <p>Пол: <span id="genderOutput"></span></p>
+                                <p>Дата рождения: <span id="birthYearOutput">Генерация года рождения</span></p>
+                                <p>Профессия: <span id="majorOutput"></span></p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <button id="reload">Обновить</button>
+                <button class="btn btn-success" id="generate">Сгенерировать</button>
+                <button class="btn btn-danger" id="clear">Очистить</button>
             </div>
         </div>
     </div>

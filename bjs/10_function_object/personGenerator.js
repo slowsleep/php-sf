@@ -1,6 +1,6 @@
 const personGenerator = {
     surnameJson: `{
-        "count": 15,
+        "count": 16,
         "list": {
             "id_1": "Иванов",
             "id_2": "Смирнов",
@@ -62,8 +62,8 @@ const personGenerator = {
             "id_5": "Котельщик"
         }
     }`,
-    majorCommon: `{
-        "count": 8,
+    majors: `{
+        "count": 10,
         "list": {
             "id_1": "Повар",
             "id_2": "Программист",
@@ -84,6 +84,10 @@ const personGenerator = {
         const obj = JSON.parse(json);
         const prop = `id_${this.randomIntNumber(obj.count, 1)}`;  // this = personGenerator
         return obj.list[prop];
+    },
+
+    randomGender: function(){
+        return this.randomIntNumber(1, 0) == 1 ? this.GENDER_FEMALE : this.GENDER_MALE;
     },
 
     randomFirstName: function(gender) {
@@ -120,24 +124,42 @@ const personGenerator = {
 
     randomMagor: function(gender) {
         let res;
+
         if (gender == this.GENDER_FEMALE) {
-            res = this.randomValue(this.majorCommon);
+            res = this.randomValue(this.majors);
         } else {
-            res = this.randomIntNumber(1, 0) == 1 ? this.randomValue(this.majorCommon) : this.randomValue(this.majorMale);
+            res = this.randomIntNumber(1, 0) == 1 ? this.randomValue(this.majors) : this.randomValue(this.majorMale);
         }
+
         return res;
     },
 
+    randomBirthdate: function() {
+        let randomYear = this.randomIntNumber(1960, 2005);
+        let randomDayMonth;
+
+        let months = ['января', 'февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря'];
+        let months31Days = ['января', 'марта','мая','июля','августа','октября','декабря'];
+        let months30Days = ['апреля','июня','сентября','ноября'];
+
+        let randomMonth = months[this.randomIntNumber(months.length, 1)];
+
+        if (months31Days.includes(randomMonth)) randomDayMonth = this.randomIntNumber(31, 1);
+        else if (months30Days.includes(randomMonth)) randomDayMonth = this.randomIntNumber(30, 1);
+        else if (monthLowDays.includes(randomMonth) && randomYear % 4 == 0) randomDayMonth = this.randomIntNumber(29, 1);
+        else randomDayMonth = this.randomIntNumber(28, 1);
+
+        return `${randomDayMonth} ${randomMonth} ${randomYear}`;
+    },
+
+
     getPerson: function () {
         this.person = {};
-        // this.person.gender = this.randomGender();
-
-        this.person.gender = this.randomIntNumber(1, 0) == 1 ? this.GENDER_FEMALE : this.GENDER_MALE;
+        this.person.gender = this.randomGender();
         this.person.firstName = this.randomFirstName(this.person.gender);
         this.person.surname =  this.randomSurname(this.person.gender);
         this.person.patronymic = this.randomPatronymic(this.person.gender);
-
-        this.person.birthdate = this.randomIntNumber(1960, 2005);
+        this.person.birthdate = this.randomBirthdate();
         this.person.major = this.randomMagor(this.person.gender);
 
         return this.person;
