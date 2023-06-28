@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(220, 235, 230);
+    background-color: rgb(229, 238, 235);
 }
 
 .my-card {
@@ -15,12 +15,14 @@ body {
     background-color: rgb(105, 204, 163);
 }
 .btn-generate:hover {
-    background-color: rgb(33, 170, 113);
+    background-color: rgb(20, 155, 99);
+    color: white;
 }
 
 .btn-clear {
-    background-color: rgb(225, 90, 90);
+    background-color: rgb(227, 106, 106);
 }
 .btn-clear:hover {
     background-color: rgb(208, 56, 56);
+    color: white;
 }
