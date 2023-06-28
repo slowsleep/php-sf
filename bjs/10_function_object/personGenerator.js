@@ -109,11 +109,10 @@ const personGenerator = {
         } else {
             if (vowels.includes(randPatronymic.slice(-1))) {
                 res = randPatronymic.slice(0, -1);
-                res += gender == this.GENDER_MALE ? 'ович' : 'овна';
             } else {
                 res = randPatronymic;
-                res += gender == this.GENDER_MALE ? 'ович' : 'овна';
             }
+            res += gender == this.GENDER_MALE ? 'ович' : 'овна';
         }
 
         return res;
