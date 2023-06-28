@@ -1,4 +1,3 @@
-
 function startGenerate(){
     const initPerson = personGenerator.getPerson();
 
@@ -13,7 +12,6 @@ function startGenerate(){
 window.onload = function() {
     startGenerate();
 };
-
 
 document.querySelector('#generate').addEventListener('click', function() {
     startGenerate();
