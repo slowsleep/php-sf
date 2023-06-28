@@ -104,24 +104,15 @@ const personGenerator = {
         let randPatronymic = this.randomFirstName(this.GENDER_MALE);
 
         if (randPatronymic.slice(-1) == 'й') {
-            if (gender == this.GENDER_MALE) {
-                res = randPatronymic.slice(0, -1) + 'eвич';
-            } else {
-                res = randPatronymic.slice(0, -1) + 'eвна';
-            }
+            res = randPatronymic.slice(0, -1);
+            res += gender == this.GENDER_MALE ? 'eвич' : 'eвна';
         } else {
             if (vowels.includes(randPatronymic.slice(-1))) {
-                if (gender == this.GENDER_MALE) {
-                    res = randPatronymic.slice(0, -1) + 'ович';
-                } else {
-                    res = randPatronymic.slice(0, -1) + 'овна';
-                }
+                res = randPatronymic.slice(0, -1);
+                res += gender == this.GENDER_MALE ? 'ович' : 'овна';
             } else {
-                if (gender == this.GENDER_MALE) {
-                    res = randPatronymic + 'ович';
-                } else {
-                    res = randPatronymic + 'овна';
-                }
+                res = randPatronymic;
+                res += gender == this.GENDER_MALE ? 'ович' : 'овна';
             }
         }
 
