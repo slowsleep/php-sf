@@ -1,63 +1,48 @@
-function sum(a, b) { return a + b;}
-
-function dif(a, b) { return a - b;}
-
-function mult(a, b) { return a * b;}
-
-function div(a, b) { return a / b;}
-
 function sqrt(a) { return Math.sqrt(a);}
 
+function setAnswer() {
+    inputWindow.value = getCulcExpression();
+}
 
-let lastOperand = 0;
-let operation = null;
-const inputWindow = document.getElementById('inputWindow');
+function getCulcExpression() {
+    let culcScript = `return ${inputWindow.value};`;
+    let calcFunc = new Function(culcScript);
+    return calcFunc();
+}
+
 let nums = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];
+const inputWindow = document.getElementById('inputWindow');
 
+const operands = new Map();
+operands.set('sum', '+');
+operands.set('dif', '-');
+operands.set('mult', '*');
+operands.set('div', '/');
+
+
+// добавляет на "дисплей" цифру нажатую пользователем
 for (let num of nums) {
     document.getElementById('btn_' + num).addEventListener('click', function () {
         inputWindow.value += num;
-    })
-}
-
-let operands = ['sum', 'dif', 'mult', 'div', 'sqrt'];
-
-for (let operand of operands) {
-    document.getElementById('btn_' + operand).addEventListener('click', function () {
-        lastOperand = parseInt(inputWindow.value);
-        operation = operand;
-        inputWindow.value = '';
-
     });
 }
 
+// добавляет на "дисплей" операцию над числами
+for (let [key, value] of operands) {
+    document.getElementById('btn_' + key).addEventListener('click', function () {
+        inputWindow.value += value;
+    });
+}
+
+document.querySelector('#btn_sqrt').addEventListener('click', function(){
+    inputWindow.value = sqrt(getCulcExpression());
+});
+
 document.getElementById('btn_calc').addEventListener('click', function () {
-    let result;
-    if (operation === 'sum') {
-        result = sum(lastOperand, parseInt(inputWindow.value));
-    }
-    if (operation === 'dif') {
-        result = dif(lastOperand, parseInt(inputWindow.value));
-    }
-    if (operation === 'mult') {
-        result = mult(lastOperand, parseInt(inputWindow.value));
-    }
-    if (operation === 'div') {
-        result = div(lastOperand, parseInt(inputWindow.value));
-    }
-    if (operation === 'sqrt') {
-        result = sqrt(lastOperand);
-    }
-    operation = null;
-    lastOperand = 0;
-    inputWindow.value = result;
-
-})
-
+    setAnswer();
+});
 
 document.getElementById('btn_clr').addEventListener('click', function () {
-    lastOperand = 0;
-    operation = null;
     inputWindow.value = '';
-})
+});
 
